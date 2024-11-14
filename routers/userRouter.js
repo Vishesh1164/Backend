@@ -2,7 +2,22 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/add',(req, res)=>{
+router.post('/add',(req, res)=>{
+    res.send('Adding a new product');
+
+})
+
+router.get('/getbyid',(req, res)=>{
+    res.send('Adding a new product');
+
+})
+
+router.get('/getall',(req, res)=>{
+    res.send('Adding a new product');
+
+})
+
+router.get('/delete',(req, res)=>{
     res.send('Adding a new product');
 
 })

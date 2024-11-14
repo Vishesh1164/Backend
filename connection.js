@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const url ="";
+const url ="mongodb+srv://srivastavavishesh59:Vishesh123@cluster0.oms1z.mongodb.net/mydb563?retryWrites=true&w=majority&appName=Cluster0";
 
 // asynchronous function - returns promise
 mongoose.connect(url)
@@ -11,3 +11,5 @@ mongoose.connect(url)
     console.log('error connecting to database', err)
     
 });
+
+module.exports = mongoose;
