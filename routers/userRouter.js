@@ -1,20 +1,52 @@
 const express = require('express');
-
+const Model = require('../models/UserModel');
 const router = express.Router();
 
 router.post('/add',(req, res)=>{
+
     console.log(req.body);
-    res.send('Adding a new product');
+
+    new Model(req.body).save()
+    .then((result) => {
+        res.status(200).json(result);
+        
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
+
+
 
 })
 
-router.get('/getbyid',(req, res)=>{
-    res.send('Adding a new product');
+router.get('/getbycity/:city',(req, res)=>{
+    Model.find({ city: req.params.city})
+    .then((result) => {
+        res.status(200).json(result);
+        
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
+})
+
+router.get('/getbyid/:id',(req, res)=>{
+    Model.findById(req.params.id)
+    .then((result) => {
+        res.status(200).json(result);
+        
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
 
 })
 
 router.get('/getall',(req, res)=>{
-    res.send('Adding a new product');
+    Model.find()
+    .then((result) => {
+        res.status(200).json(result);
+        
+    }).catch((err) => {
+        res.status(500).json(err);
+    });
 
 })
 
